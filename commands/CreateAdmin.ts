@@ -15,21 +15,21 @@ export default class CreateAdmin extends BaseCommand {
   public static settings = {
     /**
      * Set the following value to true, if you want to load the application
-     * before running the command. Don't forget to call `node ace generate:manifest` 
+     * before running the command. Don't forget to call `node ace generate:manifest`
      * afterwards.
      */
     loadApp: true,
 
     /**
      * Set the following value to true, if you want this command to keep running until
-     * you manually decide to exit the process. Don't forget to call 
+     * you manually decide to exit the process. Don't forget to call
      * `node ace generate:manifest` afterwards.
      */
     stayAlive: false,
   }
 
   public async run() {
-    const { validateEmail } = await import('App/helpers/functions')
+    const { validateEmail } = await import('App/helpers/utils')
     const { default: Admin } = await import('App/Models/Admin')
 
     // Name

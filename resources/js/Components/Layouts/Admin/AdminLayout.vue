@@ -11,12 +11,13 @@ import AdminHeader from "./AdminHeader.vue"
     <main class="flex-1 bg-gray-100">
       <AdminHeader />
 
-      <slot />
+      <div class="p-6">
+        <slot />
+      </div>
     </main>
   </div>
 </template>
 
 
 <style lang="scss" scoped>
-
 </style>

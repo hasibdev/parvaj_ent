@@ -8,7 +8,7 @@ import DefaultLayout from './Components/Layouts/Web/DefaultLayout.vue'
 createInertiaApp({
   resolve: name => {
     const page = require(`./Pages/${name}`).default
-    if(!page.layout) page.layout = DefaultLayout
+    if (!page.layout) page.layout = DefaultLayout
 
     return page
   },
