@@ -9,6 +9,9 @@ export default class AdminsSchema extends BaseSchema {
 
       table.string('email', 255).notNullable()
       table.string('name', 100).notNullable()
+
+      table.string('shop_name').notNullable()
+
       table.string('password', 180).notNullable()
       table.string('remember_me_token').nullable()
 

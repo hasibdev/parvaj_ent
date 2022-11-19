@@ -7,6 +7,7 @@ export default class extends BaseSeeder {
     await Admin.create({
       name: 'Admin',
       email,
+      shop_name: 'Parvaj Enterprise',
       password: '123456'
     })
   }

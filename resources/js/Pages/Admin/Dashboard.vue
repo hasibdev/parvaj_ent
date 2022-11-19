@@ -13,7 +13,7 @@ export default {
   <div class="p-4">
 
     <Head title="Dashboard" />
-    <h1 class="text-red-500">Inertia Render</h1>
+    <h1 class="text-red-500">Inertia Render!</h1>
   </div>
 </template>
 

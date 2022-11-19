@@ -65,14 +65,10 @@ const handleToggle = (item) => {
         <TrasitionExpand>
           <div v-if="item.visible">
             <div v-for="(child, i) in item.children" :key="i">
-              <Link
-                :href="child.href"
-                class="link__item flex items-center pl-5"
-                :class="`${child.active ? 'link-active' : 'bg-darklight'}`"
-              >
-                <span class="dot"></span>
+              <Link :href="child.href" class="link__item flex items-center pl-5" :class="`${child.active ? 'link-active' : 'bg-darklight'}`">
+              <span class="dot"></span>
 
-                {{ child.title }}
+              {{ child.title }}
               </Link>
             </div>
           </div>
@@ -80,16 +76,11 @@ const handleToggle = (item) => {
       </div>
 
       <!-- IF no children -->
-      <Link
-        v-else
-        :href="item.href"
-        class="link__item block px-4"
-        :class="{ 'link-active': item.active }"
-      >
-        <p>
-          <font-awesome-icon v-if="item.icon" :icon="item.icon" class="mr-3" />
-          {{ item.title }}
-        </p>
+      <Link v-else :href="item.href" class="link__item block px-4" :class="{ 'link-active': item.active }">
+      <p>
+        <font-awesome-icon v-if="item.icon" :icon="item.icon" class="mr-3" />
+        {{ item.title }}
+      </p>
       </Link>
     </div>
   </div>
@@ -97,33 +88,33 @@ const handleToggle = (item) => {
 
 <style lang="scss" scoped>
 .link__item {
-  @apply py-3 cursor-pointer hover:bg-gray-800 transition duration-300;
-  font-size: 15.7px;
+   @apply py-3 cursor-pointer hover:bg-gray-800 transition duration-300;
+   font-size: 15.7px;
 }
 
 .link-active {
-  @apply bg-gray-800;
+   @apply bg-gray-800;
 }
 
 .dot {
-  width: 6px;
-  height: 6px;
-  display: inline-block;
-  background-color: #b4c9de;
-  border-radius: 50%;
-  margin-right: 16px;
+   width: 6px;
+   height: 6px;
+   display: inline-block;
+   background-color: #b4c9de;
+   border-radius: 50%;
+   margin-right: 16px;
 }
 
 .sidebar__menu {
-  .arrow__icon {
-    transition: all 0.3s ease-in-out;
-    &.visible {
-      transform: rotate(90deg);
-    }
-  }
+   .arrow__icon {
+      transition: all 0.3s ease-in-out;
+      &.visible {
+         transform: rotate(90deg);
+      }
+   }
 }
 
 .bg-darklight {
-  background-color: #383b4e;
+   background-color: #383b4e;
 }
 </style>
