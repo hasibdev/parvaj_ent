@@ -1,13 +1,13 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 // Auth
-Route.get('/login', 'AuthController.view')
-Route.post('/login', 'AuthController.login')
 
 Route.group(() => {
-  Route.get('/', 'DashboardController.index')
+  Route.get('/login', 'AuthController.view').as('login')
+  Route.post('/login', 'AuthController.login').as('login.post')
+  Route.get('/', 'DashboardController.index').as('dashboard')
 
-  Route.resource('categories', 'CategoriesController')
-  Route.resource('products', 'ProductsController')
+  Route.resource('categories', 'CategoriesController').as('categories')
+  Route.resource('products', 'ProductsController').as('products')
 
-})
+}).as('seller')
