@@ -9,6 +9,8 @@ Route.group(() => {
   // Auth Middleware
   Route.group(() => {
     Route.get('/', 'DashboardController.index').as('dashboard')
+
+    Route.post('logout', 'AuthController.logout').as('logout')
   }).middleware(['auth:admin'])
 
 }).as('admin')

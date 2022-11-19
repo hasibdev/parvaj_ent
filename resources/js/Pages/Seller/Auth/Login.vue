@@ -10,7 +10,7 @@ const form = useForm({
 })
 
 const login = () => {
-  form.post('/admin/login', {
+  form.post('/seller/login', {
     onSuccess: () => {
       form.reset()
     }

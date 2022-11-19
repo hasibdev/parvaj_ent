@@ -9,7 +9,7 @@ export default class AuthController {
     const payload = await request.validate(LoginValidator)
     await auth.use('seller').attempt(payload.identifier, payload.password)
 
-    return response.redirect('/seller')
+    return response.status(303).redirect('/seller')
   }
 
   public async logout({ auth, inertia }: HttpContextContract) {

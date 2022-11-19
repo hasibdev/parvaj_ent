@@ -1,6 +1,47 @@
 <script setup>
+import { h } from 'vue'
+import { NIcon, NDropdown } from 'naive-ui'
+import {
+  PersonCircleOutline as UserIcon,
+  Pencil as EditIcon,
+  LogOutOutline as LogoutIcon
+} from '@vicons/ionicons5'
+
 import Hamburger from '@/Components/icons/Hamburger'
 import BellIcon from '@/Components/icons/BellIcon'
+import { Inertia } from '@inertiajs/inertia'
+
+const renderIcon = (icon) => {
+  return () => {
+    return h(NIcon, null, {
+      default: () => h(icon)
+    })
+  }
+}
+
+const options = [
+  {
+    label: 'Profile',
+    key: 'profile',
+    icon: renderIcon(UserIcon)
+  },
+  {
+    label: 'Edit Profile',
+    key: 'editProfile',
+    icon: renderIcon(EditIcon)
+  },
+  {
+    label: 'Logout',
+    key: 'logout',
+    icon: renderIcon(LogoutIcon)
+  }
+]
+
+const handleSelect = async (key) => {
+  if (key === 'logout') {
+    Inertia.post('/seller/logout')
+  }
+}
 
 </script>
 <template>
@@ -16,7 +57,9 @@ import BellIcon from '@/Components/icons/BellIcon'
 
       <!-- Profile Image -->
       <div>
-        <img src="@/images/profile.png" class="w-9" alt="Profile">
+        <n-dropdown :options="options" @select="handleSelect">
+          <img src="@/images/profile.png" class="w-9 cursor-pointer" alt="Profile">
+        </n-dropdown>
       </div>
     </div>
   </div>

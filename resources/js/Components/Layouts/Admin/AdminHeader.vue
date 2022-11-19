@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue'
-import { NIcon } from 'naive-ui'
+import { h } from 'vue'
+import { NIcon, NDropdown } from 'naive-ui'
 import {
   PersonCircleOutline as UserIcon,
   Pencil as EditIcon,
@@ -9,6 +9,7 @@ import {
 
 import Hamburger from '@/Components/icons/Hamburger'
 import BellIcon from '@/Components/icons/BellIcon'
+import { Inertia } from '@inertiajs/inertia'
 
 const renderIcon = (icon) => {
   return () => {
@@ -18,7 +19,7 @@ const renderIcon = (icon) => {
   }
 }
 
-const options = ref([
+const options = [
   {
     label: 'Profile',
     key: 'profile',
@@ -34,7 +35,13 @@ const options = ref([
     key: 'logout',
     icon: renderIcon(LogoutIcon)
   }
-])
+]
+
+const handleSelect = async (key) => {
+  if (key === 'logout') {
+    Inertia.post('/admin/logout')
+  }
+}
 
 </script>
 <template>
@@ -50,8 +57,8 @@ const options = ref([
 
       <!-- Profile Image -->
       <div>
-        <n-dropdown :options="options">
-          <img src="@/images/profile.png" class="w-9" alt="Profile">
+        <n-dropdown :options="options" @select="handleSelect">
+          <img src="@/images/profile.png" class="w-9 cursor-pointer" alt="Profile">
         </n-dropdown>
       </div>
     </div>
