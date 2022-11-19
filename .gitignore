@@ -4,3 +4,7 @@ coverage
 .DS_STORE
 .env
 tmp
+
+package-lock.json
+yarn.lock
+yarn-error.log
