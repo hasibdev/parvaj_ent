@@ -2,12 +2,20 @@
 import { reactive } from "vue"
 import { NInput, NButton } from 'naive-ui'
 
-import InputField from "@/Components/Form/InputField.vue"
+import { useForm } from '@inertiajs/inertia-vue3'
 
-const form = reactive({
-  email: "",
-  password: "",
+const form = useForm({
+  identifier: 'admin@test.com',
+  password: '123456'
 })
+
+const login = () => {
+  form.post('/admin/login', {
+    onSuccess: () => {
+      form.reset()
+    }
+  })
+}
 </script>
 
 <script>
@@ -20,14 +28,14 @@ export default {
 <template>
   <div class="flex justify-center items-center h-screen bg-gray-100">
     <div class="card">
-      <h1 class="text-xl mb-4">Signin</h1>
+      <h1 class="text-xl mb-4 text-center">Welcome Back</h1>
 
-      <form>
-        <n-input v-model:value="form.email" size="large" type="email" placeholder="Email" class="mb-3" />
-        <n-input v-model:value="form.password" size="large" type="password" placeholder="Password" show-password-on="mousedown" class="mb-3" />
+      <form @submit.prevent="login">
+        <n-input v-model:value="form.identifier" size="large" type="email" placeholder="Email" class="mb-3" />
+        <n-input v-model:value="form.password" size="large" type="password" placeholder="Password" show-password-on="mousedown" class="mb-4" />
 
         <div class="flex justify-end">
-          <n-button attr-type="submit">
+          <n-button attr-type="submit" type="primary" size="large" class="text-lg">
             Login
           </n-button>
         </div>
@@ -38,7 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-   @apply shadow p-6;
+   @apply shadow p-6 bg-white rounded;
    width: 500px;
 }
 </style>
