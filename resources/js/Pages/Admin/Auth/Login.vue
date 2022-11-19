@@ -35,7 +35,7 @@ export default {
         <n-input v-model:value="form.password" size="large" type="password" placeholder="Password" show-password-on="mousedown" class="mb-4" />
 
         <div class="flex justify-end">
-          <n-button attr-type="submit" type="primary" size="large" class="text-lg">
+          <n-button attr-type="submit" type="success" :loading="form.processing" :disabled="form.processing" size="large" class="text-lg bg-primary">
             Login
           </n-button>
         </div>

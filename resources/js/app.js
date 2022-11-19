@@ -1,9 +1,10 @@
-import '../css/tailwind.css'
 
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
 import globalComponents from './plugins/globalComponents'
 import DefaultLayout from './Components/Layouts/Web/DefaultLayout.vue'
+
+import '../css/tailwind.css'
 
 createInertiaApp({
   resolve: name => {
