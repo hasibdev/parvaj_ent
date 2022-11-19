@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
 import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
-export default class Admin extends BaseModel {
+export default class Seller extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
@@ -11,6 +11,9 @@ export default class Admin extends BaseModel {
 
   @column()
   public email: string
+
+  @column()
+  public shop_name: string
 
   @column({ serializeAs: null })
   public password: string
@@ -25,9 +28,9 @@ export default class Admin extends BaseModel {
   public updatedAt: DateTime
 
   @beforeSave()
-  public static async hashPassword(admin: Admin) {
-    if (admin.$dirty.password) {
-      admin.password = await Hash.make(admin.password)
+  public static async hashPassword(seller: Seller) {
+    if (seller.$dirty.password) {
+      seller.password = await Hash.make(seller.password)
     }
   }
 }

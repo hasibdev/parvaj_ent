@@ -7,4 +7,7 @@ Route.post('/login', 'AuthController.login')
 Route.group(() => {
   Route.get('/', 'DashboardController.index')
 
+  Route.resource('categories', 'CategoriesController')
+  Route.resource('products', 'ProductsController')
+
 })

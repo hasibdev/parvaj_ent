@@ -9,3 +9,10 @@ Route.group(async () => {
 })
   .prefix('admin')
   .namespace('App/Controllers/Admin')
+
+// Admin Routes
+Route.group(async () => {
+  await require('./routes/seller.route')
+})
+  .prefix('seller')
+  .namespace('App/Controllers/Seller')
