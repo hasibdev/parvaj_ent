@@ -12,8 +12,8 @@ export default class extends BaseSeeder {
     })
 
     await Seller.create({
-      name: 'Admin',
-      email,
+      name: 'Seller',
+      email: "seller@test.com",
       shop_name: "Test Shop",
       password: '123456'
     })

@@ -12,8 +12,8 @@ export default class AuthController {
     return response.status(303).redirect('/seller')
   }
 
-  public async logout({ auth, inertia }: HttpContextContract) {
+  public async logout({ auth, response }: HttpContextContract) {
     await auth.logout()
-    return inertia.render('Seller/Auth/Login')
+    return response.status(303).redirect('/seller/login')
   }
 }

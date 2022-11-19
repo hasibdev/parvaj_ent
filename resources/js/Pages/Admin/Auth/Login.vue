@@ -28,7 +28,7 @@ export default {
 <template>
   <div class="flex justify-center items-center h-screen bg-gray-100">
     <div class="card">
-      <h1 class="text-xl mb-4 text-center">Welcome Back</h1>
+      <h1 class="text-xl mb-4 text-center">Welcome Admin</h1>
 
       <form @submit.prevent="login">
         <n-input v-model:value="form.identifier" size="large" type="email" placeholder="Email" class="mb-3" />
