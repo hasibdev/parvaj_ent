@@ -9,18 +9,18 @@ export default class CategoriesController {
 
     const data = await Category.query().paginate(page, perPage)
 
-    return inertia.render('Admin/Categories/Index', { data })
+    return inertia.render('Seller/Categories/Index', { data })
   }
 
   public async create({ inertia }: HttpContextContract) {
-    return inertia.render('Admin/Categories/Create')
+    return inertia.render('Seller/Categories/Create')
   }
 
   public async store({ request, response }: HttpContextContract) {
     const payload = await request.validate(CreateCategoryValidator)
     await Category.create(payload)
 
-    return response.status(303).redirect('/admin/categories')
+    return response.status(303).redirect('/seller/categories')
   }
 
   public async show({ }: HttpContextContract) { }

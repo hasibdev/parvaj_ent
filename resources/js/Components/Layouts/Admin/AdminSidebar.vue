@@ -10,18 +10,11 @@ const menuItems = [
     exactActive: true,
   },
   {
-    title: "Categories",
+    title: "Sellers",
     icon: faGrip,
-    href: "/admin/categories",
+    href: "/admin/sellers",
   },
-  {
-    title: "Products",
-    icon: faCubesStacked,
-    children: [
-      { title: "Add Product", href: "/admin/products/create" },
-      { title: "Manage Product", href: "/admin/products" },
-    ],
-  },
+
 ]
 </script>
 

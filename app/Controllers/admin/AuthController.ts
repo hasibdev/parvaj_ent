@@ -2,8 +2,10 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { LoginValidator } from 'App/Validators/AdminAuthValidator'
 
 export default class AuthController {
+  private loginView = 'Admin/Auth/Login'
+
   public async view({ inertia }: HttpContextContract) {
-    return inertia.render('Admin/Auth/Login')
+    return inertia.render(this.loginView)
   }
   public async login({ auth, request, response }: HttpContextContract) {
     const payload = await request.validate(LoginValidator)
@@ -14,6 +16,6 @@ export default class AuthController {
 
   public async logout({ auth, inertia }: HttpContextContract) {
     await auth.logout()
-    return inertia.render('Auth/AdminLogin')
+    return inertia.render(this.loginView)
   }
 }

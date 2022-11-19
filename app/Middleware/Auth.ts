@@ -13,7 +13,9 @@ export default class AuthMiddleware {
   /**
    * The URL to redirect to when request is Unauthorized
    */
-  protected redirectTo = '/login'
+  protected userRedirectTo = '/login'
+  protected adminRedirectTo = '/admin/login'
+  protected sellerRedirectTo = '/seller/login'
 
   /**
    * Authenticates the current HTTP request against a custom set of defined
@@ -49,18 +51,24 @@ export default class AuthMiddleware {
     /**
      * Unable to authenticate using any guard
      */
+    const redirectRoute = () => {
+      if (guards.includes('admin')) return this.adminRedirectTo
+      if (guards.includes('seller')) return this.sellerRedirectTo
+      return this.userRedirectTo
+    }
+
     throw new AuthenticationException(
       'Unauthorized access',
       'E_UNAUTHORIZED_ACCESS',
       guardLastAttempted,
-      this.redirectTo,
+      redirectRoute(),
     )
   }
 
   /**
    * Handle request
    */
-  public async handle (
+  public async handle(
     { auth }: HttpContextContract,
     next: () => Promise<void>,
     customGuards: (keyof GuardsList)[]

@@ -1,9 +1,9 @@
 <script setup></script>
 
 <script>
-import AdminLayout from '@/Components/Layouts/Admin/AdminLayout'
+import SellerLayout from '@/Components/Layouts/Seller/SellerLayout'
 export default {
-  layout: AdminLayout
+  layout: SellerLayout
 }
 </script>
 
@@ -15,5 +15,4 @@ export default {
 
 
 <style lang="scss" scoped>
-
 </style>
