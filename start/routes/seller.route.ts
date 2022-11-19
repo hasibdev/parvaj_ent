@@ -11,6 +11,8 @@ Route.group(() => {
 
     Route.resource('categories', 'CategoriesController').as('categories')
     Route.resource('products', 'ProductsController').as('products')
+
+    Route.post('logout', 'AuthController.logout').as('logout')
   }).middleware(['auth:seller'])
 
 
