@@ -12,10 +12,7 @@ const menuItems = [
   {
     title: "Categories",
     icon: faGrip,
-    children: [
-      { title: "Add Category", href: "/admin/categories/create" },
-      { title: "Manage Category", href: "/admin/categories" },
-    ],
+    href: "/admin/categories",
   },
   {
     title: "Products",
@@ -44,11 +41,11 @@ const menuItems = [
 
 <style lang="scss" scoped>
 .sidebar__wrapper {
-  background-color: #333547;
-  color: #b4c9de;
+   background-color: #333547;
+   color: #b4c9de;
 
-  .sidebar__header {
-    background-color: #272b35;
-  }
+   .sidebar__header {
+      background-color: #272b35;
+   }
 }
 </style>
