@@ -2,7 +2,7 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class HomeController {
   public async index({ response }: HttpContextContract) {
-    return response.redirect('/admin')
+    return response.redirect('/seller')
   }
 
   public async create({ }: HttpContextContract) { }

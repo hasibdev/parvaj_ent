@@ -39,6 +39,16 @@ const authConfig: AuthConfig = {
         model: () => import('App/Models/Admin'),
       },
     },
+    seller: {
+      driver: 'session',
+
+      provider: {
+        driver: 'lucid',
+        identifierKey: 'id',
+        uids: ['email'],
+        model: () => import('App/Models/Seller'),
+      },
+    },
 
     api: {
       driver: 'oat',
