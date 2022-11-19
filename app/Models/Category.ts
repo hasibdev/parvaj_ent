@@ -15,9 +15,6 @@ export default class Category extends BaseModel {
   @hasMany(() => Product)
   public products: HasMany<typeof Product>
 
-  @column()
-  public admin_id: number
-
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

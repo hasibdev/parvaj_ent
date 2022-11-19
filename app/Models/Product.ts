@@ -26,10 +26,6 @@ export default class Product extends BaseModel {
   @column()
   public brand: string
 
-
-  @column()
-  public admin_id: number
-
   @column()
   public category_id: number
 

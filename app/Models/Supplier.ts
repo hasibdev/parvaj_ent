@@ -17,9 +17,6 @@ export default class Supplier extends BaseModel {
   @column()
   public email: string
 
-  @column()
-  public admin_id: number
-
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

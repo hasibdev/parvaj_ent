@@ -15,7 +15,7 @@ export default class Customers extends BaseSchema {
 
       table.string('email').nullable()
 
-      table.bigInteger('admin_id').unsigned().references('admins.id').notNullable()
+      table.bigInteger('seller_id').unsigned().references('sellers.id').notNullable()
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

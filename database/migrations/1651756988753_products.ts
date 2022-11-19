@@ -17,7 +17,7 @@ export default class Products extends BaseSchema {
       table.string('brand').notNullable()
 
       table.bigInteger('category_id').unsigned().references('categories.id').notNullable()
-      table.bigInteger('admin_id').unsigned().references('admins.id').notNullable()
+      table.bigInteger('seller_id').unsigned().references('sellers.id').notNullable()
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
