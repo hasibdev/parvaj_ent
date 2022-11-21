@@ -2,6 +2,11 @@ import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
 import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
 
+import {
+  attachment,
+  AttachmentContract
+} from '@ioc:Adonis/Addons/AttachmentLite'
+
 export default class Admin extends BaseModel {
   @column({ isPrimary: true })
   public id: number
@@ -12,8 +17,17 @@ export default class Admin extends BaseModel {
   @column()
   public email: string
 
+  @column()
+  public phone: string
+
   @column({ serializeAs: null })
   public password: string
+
+  @attachment()
+  public profile_image: AttachmentContract
+
+  @attachment()
+  public banner_image: AttachmentContract
 
   @column()
   public rememberMeToken?: string

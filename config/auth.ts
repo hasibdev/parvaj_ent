@@ -19,16 +19,6 @@ import type { AuthConfig } from '@ioc:Adonis/Addons/Auth'
 const authConfig: AuthConfig = {
   guard: 'user',
   guards: {
-    user: {
-      driver: 'session',
-
-      provider: {
-        driver: 'lucid',
-        identifierKey: 'id',
-        uids: ['email'],
-        model: () => import('App/Models/User'),
-      },
-    },
     admin: {
       driver: 'session',
 
@@ -39,13 +29,24 @@ const authConfig: AuthConfig = {
         model: () => import('App/Models/Admin'),
       },
     },
+
+    user: {
+      driver: 'session',
+
+      provider: {
+        driver: 'lucid',
+        identifierKey: 'id',
+        uids: ['phone'],
+        model: () => import('App/Models/User'),
+      },
+    },
     seller: {
       driver: 'session',
 
       provider: {
         driver: 'lucid',
         identifierKey: 'id',
-        uids: ['email'],
+        uids: ['phone'],
         model: () => import('App/Models/Seller'),
       },
     },

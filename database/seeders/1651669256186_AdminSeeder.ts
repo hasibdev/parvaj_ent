@@ -8,12 +8,14 @@ export default class extends BaseSeeder {
     await Admin.create({
       name: 'Admin',
       email,
+      phone: "0123456789",
       password: '123456'
     })
 
     await Seller.create({
       name: 'Seller',
       email: "seller@test.com",
+      phone: "0123456789",
       shop_name: "Test Shop",
       password: '123456'
     })
