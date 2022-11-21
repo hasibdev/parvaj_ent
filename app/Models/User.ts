@@ -23,10 +23,10 @@ export default class User extends BaseModel {
   @column()
   public phone: string
 
-  @attachment()
+  @attachment({ folder: 'users/profile' })
   public profile_image: AttachmentContract
 
-  @attachment()
+  @attachment({ folder: 'users/banner' })
   public banner_image: AttachmentContract
 
   @column({ serializeAs: null })

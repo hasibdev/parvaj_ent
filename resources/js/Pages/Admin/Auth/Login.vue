@@ -31,8 +31,8 @@ export default {
       <h1 class="text-xl mb-4 text-center">Welcome Admin</h1>
 
       <form @submit.prevent="login">
-        <n-input v-model:value="form.identifier" size="large" type="email" placeholder="Email" class="mb-3" />
-        <n-input v-model:value="form.password" size="large" type="password" placeholder="Password" show-password-on="mousedown" class="mb-4" />
+        <n-input v-model:value="form.identifier" :disabled="form.processing" size="large" type="email" placeholder="Email" class="mb-3" />
+        <n-input v-model:value="form.password" :disabled="form.processing" size="large" type="password" placeholder="Password" show-password-on="mousedown" class="mb-4" />
 
         <div class="flex justify-end">
           <n-button attr-type="submit" type="success" :loading="form.processing" :disabled="form.processing" size="large" class="text-lg bg-primary">

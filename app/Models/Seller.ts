@@ -16,7 +16,7 @@ export default class Seller extends BaseModel {
   public name: string
 
   @column()
-  public email: string
+  public email: string | null
 
   @column()
   public phone: string
@@ -24,11 +24,11 @@ export default class Seller extends BaseModel {
   @column()
   public shop_name: string
 
-  @attachment()
-  public profile_image: AttachmentContract
+  @attachment({ folder: 'sellers/profile' })
+  public profile_image: AttachmentContract | null
 
-  @attachment()
-  public banner_image: AttachmentContract
+  @attachment({ folder: 'sellers/banner' })
+  public banner_image: AttachmentContract | null
 
   @column({ serializeAs: null })
   public password: string

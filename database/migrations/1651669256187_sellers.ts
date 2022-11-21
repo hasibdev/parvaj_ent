@@ -9,8 +9,8 @@ export default class SellersSchema extends BaseSchema {
       table.bigIncrements('id').primary()
 
       table.string('name', 100).notNullable()
-      table.string('phone', 20).notNullable()
-      table.string('email', 255).nullable()
+      table.string('phone', 20).unique().notNullable()
+      table.string('email', 255).unique().nullable()
 
       table.string('shop_name').notNullable()
       table.json('profile_image').nullable()

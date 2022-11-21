@@ -8,7 +8,7 @@ export default class AdminsSchema extends BaseSchema {
       table.bigIncrements('id').primary()
 
       table.string('name', 100).notNullable()
-      table.string('email', 255).notNullable()
+      table.string('email', 255).unique().notNullable()
       table.string('phone', 20).nullable()
 
       table.json('profile_image').nullable()

@@ -23,10 +23,10 @@ export default class Admin extends BaseModel {
   @column({ serializeAs: null })
   public password: string
 
-  @attachment()
+  @attachment({ folder: 'admins/profile' })
   public profile_image: AttachmentContract
 
-  @attachment()
+  @attachment({ folder: 'admins/banner' })
   public banner_image: AttachmentContract
 
   @column()
