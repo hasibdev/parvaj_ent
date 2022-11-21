@@ -1,11 +1,12 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { column, beforeSave, BaseModel, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
 
 import {
   attachment,
   AttachmentContract
 } from '@ioc:Adonis/Addons/AttachmentLite'
+import Admin from './Admin'
 
 export default class Seller extends BaseModel {
   @column({ isPrimary: true })
@@ -38,6 +39,11 @@ export default class Seller extends BaseModel {
   @column()
   public phone_varified: boolean
 
+  @column()
+  public admin_id: number
+
+  @hasOne(() => Admin)
+  admin: HasOne<typeof Admin>
 
   @column()
   public rememberMeToken?: string

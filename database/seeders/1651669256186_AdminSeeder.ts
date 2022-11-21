@@ -17,6 +17,7 @@ export default class extends BaseSeeder {
       email: "seller@test.com",
       phone: "0123456789",
       shop_name: "Test Shop",
+      admin_id: 1,
       password: '123456'
     })
   }

@@ -1,4 +1,5 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
+import StatusType from 'App/Enums/StatusType'
 
 export default class UsersSchema extends BaseSchema {
   protected tableName = 'users'
@@ -18,6 +19,8 @@ export default class UsersSchema extends BaseSchema {
 
       table.boolean('email_varified').defaultTo(false)
       table.boolean('phone_varified').defaultTo(false)
+
+      table.enum('status', Object.values(StatusType)).defaultTo(StatusType.DRAFT)
 
       table.string('remember_me_token').nullable()
 

@@ -1,4 +1,5 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
+import StatusType from 'App/Enums/StatusType'
 
 export default class Products extends BaseSchema {
   protected tableName = 'products'
@@ -18,6 +19,8 @@ export default class Products extends BaseSchema {
 
       table.bigInteger('category_id').unsigned().references('categories.id').notNullable()
       table.bigInteger('seller_id').unsigned().references('sellers.id').notNullable()
+
+      table.enum('status', Object.values(StatusType)).defaultTo(StatusType.DRAFT)
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

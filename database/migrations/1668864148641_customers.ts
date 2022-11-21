@@ -1,4 +1,5 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
+import StatusType from 'App/Enums/StatusType'
 
 export default class Customers extends BaseSchema {
   protected tableName = 'customers'
@@ -8,14 +9,13 @@ export default class Customers extends BaseSchema {
       table.bigIncrements('id').primary()
 
       table.string('name').notNullable()
-
       table.string('address').notNullable()
-
       table.string('phone').notNullable()
-
       table.string('email').nullable()
 
       table.bigInteger('seller_id').unsigned().references('sellers.id').notNullable()
+
+      table.enum('status', Object.values(StatusType)).defaultTo(StatusType.DRAFT)
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
