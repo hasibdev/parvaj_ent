@@ -5,7 +5,7 @@ import { NInput, NButton } from 'naive-ui'
 import { useForm } from '@inertiajs/inertia-vue3'
 
 const form = useForm({
-  identifier: 'seller@test.com',
+  identifier: 'seller@test.comm',
   password: '123456'
 })
 
@@ -13,6 +13,12 @@ const login = () => {
   form.post('/seller/login', {
     onSuccess: () => {
       form.reset()
+    },
+    onError: (err) => {
+      console.log({ err })
+    },
+    onFinish: (res) => {
+      console.log({ res })
     }
   })
 }
@@ -32,10 +38,12 @@ export default {
 
       <form @submit.prevent="login">
         <n-input v-model:value="form.identifier" size="large" type="email" placeholder="Email" class="mb-3" />
-        <n-input v-model:value="form.password" size="large" type="password" placeholder="Password" show-password-on="mousedown" class="mb-4" />
+        <n-input v-model:value="form.password" size="large" type="password" placeholder="Password"
+          show-password-on="mousedown" class="mb-4" />
 
         <div class="flex justify-end">
-          <n-button attr-type="submit" type="success" :loading="form.processing" :disabled="form.processing" size="large" class="text-lg bg-primary">
+          <n-button attr-type="submit" type="success" :loading="form.processing" :disabled="form.processing"
+            size="large" class="text-lg bg-primary">
             Login
           </n-button>
         </div>
@@ -46,7 +54,7 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-   @apply shadow p-6 bg-white rounded;
-   width: 500px;
+  @apply shadow p-6 bg-white rounded;
+  width: 500px;
 }
 </style>

@@ -7,11 +7,22 @@ export default class AuthController {
   public async view({ inertia }: HttpContextContract) {
     return inertia.render(this.loginView)
   }
-  public async login({ auth, request, response }: HttpContextContract) {
-    const payload = await request.validate(LoginValidator)
-    await auth.use('admin').attempt(payload.identifier, payload.password)
+  public async login({ auth, request, response, session }: HttpContextContract) {
+    try {
+      const payload = await request.validate(LoginValidator)
+      await auth.use('admin').attempt(payload.identifier, payload.password)
 
-    return response.status(303).redirect('/admin')
+      return response.status(303).redirect('/admin')
+    } catch (error) {
+      session.flash({
+        errors: {
+          invalid: 'Invalid E-mail or password!',
+          error
+        }
+      })
+      return response.redirect().back()
+    }
+
   }
 
   public async logout({ auth, response }: HttpContextContract) {
